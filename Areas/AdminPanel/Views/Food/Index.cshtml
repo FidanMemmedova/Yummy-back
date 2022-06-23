@@ -17,7 +17,6 @@
                                     <tr>
                                         <th>№</th>
                                         <th>Image</th>
-                                        <th>Name</th>
                                         <th>Delete</th>
                                         <th>Update</th>
                                     </tr>
@@ -28,12 +27,12 @@
                                         <tr>
                                             <td>@count</td>
                                             <td><img src="~/image/@food.Image" /></td>
-                                            <td>@food.Name</td>
                                             <td>
-                                                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@food.Id"> <i class="mdi mdi-delete-forever"></i></a>
-                                              
+                                                <form asp-action="Delete"  asp-route-id="@food.Id"><button class="btn btn-danger btn-sm" ><i class="mdi mdi-delete-forever"></i></button></form>
                                             </td>
-                                            <td>  <a class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@food.Id"> <i class="mdi mdi-lead-pencil"></i></a></td>
+                                            <td>
+                                                <form asp-action="Update" asp-route-id="@food.Id"><button class="btn btn-danger btn-sm"><i class="mdi mdi-lead-pencil"></i></button></form>
+                                            </td>
                                         </tr>
                                         count++;
                                     }

@@ -77,7 +77,7 @@ namespace Yummy.Areas.AdminPanel.Controllers
         // POST: FoodController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Update(int id, Food newfood)
+        public async Task<ActionResult> Update(int? id, Food newfood)
         {
             if (id==null)
             {
@@ -101,6 +101,12 @@ namespace Yummy.Areas.AdminPanel.Controllers
             {
                 ModelState.AddModelError("photo", "sekil olmalidi");
                 return View();
+            }
+            newfood.Image = await newfood.Photo.SaveFileAsync(_env.WebRootPath, "image");
+            var path = Helper.GetPath(_env.WebRootPath, "image", oldfood.Image);
+             if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
             }
             newfood.Image = oldfood.Image;
             await _context.SaveChangesAsync();
