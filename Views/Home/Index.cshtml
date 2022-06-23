@@ -1,0 +1,127 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+<main>
+    <section id="delicious_food">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <h2>
+                        Enjoy Your Healthy Delicious Food
+                    </h2>
+                    <p>
+                        Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae
+                        cumque eum quaerat.
+                    </p>
+                    <button type="button" class="btn btn-danger">Book a Table</button>
+                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ&feature=emb_title">
+                        <i class="fa-regular fa-circle-play"></i>
+                        <span>Watch Video</span>
+                    </a>
+                </div>
+                <div class="col-xl-6">
+                    <img src="~/image/hero-img.png" alt="food">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="our_menu">
+        <div class="container">
+            <span>OUR MENU</span>
+            <h3>CHECK OUR <span>YUMMY MENU</span></h3>
+            <div class="categories">
+                <ul>
+                    <li>
+                        Starters
+                    </li>
+                    <li>
+                        Breakfast
+                    </li>
+                    <li>
+                        Lunch
+                    </li>
+                    <li>Dinner</li>
+                </ul>
+            </div>
+            <span>MENU</span>
+            <h4>Starters</h4>
+            <div class="menu-items">
+                <div class="row">
+                    @foreach (var food in Model.Foods)
+                    {
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                            <div class="menu-item">
+                                <img src="~/image/@food.Image" alt="food"></img>
+                                <h4>
+                                    @food.Name
+                                </h4>
+                                <p> @food.Description</p>
+                                <span>$@food.Price</span>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>
+    <section id="book_a_table">
+        <div class="container">
+            <span>BOOK A TABLE</span>
+            <h3>BOOK <span>YOUR STAY</span> WITH US</h3>
+
+            <div class="book_a_table_summary">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <img src="~/image/reservation.jpg" alt="table">
+                    </div>
+                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                        <div class="book_a_table_form">
+                            <form>
+                                <div class="form-row align-items-center">
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInput">Your Name</label>
+                                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Your Name">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInputGroup">Your Email</label>
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Your Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInput">Your Phone</label>
+                                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Your Phone">
+                                    </div><div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInput">Date</label>
+                                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Date">
+                                    </div><div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInput">Time</label>
+                                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Time">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="sr-only" for="inlineFormInput"># of people</label>
+                                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="# of people">
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <label for="exampleFormControlTextarea1"></label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"></textarea>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" class="btn btn-danger">Book a Table</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
