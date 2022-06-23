@@ -4,7 +4,6 @@
     int count = 1;
 }
 
-<h1>Index</h1>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
@@ -12,9 +11,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Basic Table</h4>
-                        <p class="card-description">
-                            Add class <code>.table</code>
-                        </p>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -22,6 +18,8 @@
                                         <th>№</th>
                                         <th>Image</th>
                                         <th>Name</th>
+                                        <th>Delete</th>
+                                        <th>Update</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,8 +29,11 @@
                                             <td>@count</td>
                                             <td><img src="~/image/@food.Image" /></td>
                                             <td>@food.Name</td>
-                                            <td><button type="button" class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@food.Id"></button></td>
-                                            <td><button type="button" class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@food.Id"></button></td>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@food.Id"> <i class="mdi mdi-delete-forever"></i></a>
+                                              
+                                            </td>
+                                            <td>  <a class="btn btn-warning btn-sm" asp-action="Update" asp-route-id="@food.Id"> <i class="mdi mdi-lead-pencil"></i></a></td>
                                         </tr>
                                         count++;
                                     }

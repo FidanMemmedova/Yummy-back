@@ -60,24 +60,51 @@ namespace Yummy.Areas.AdminPanel.Controllers
         }
 
         // GET: FoodController/Edit/5
-        public ActionResult Update(int id)
+        public ActionResult Update(int? id)
         {
-            return View();
+            if (id==null)
+            {
+                return BadRequest();
+            }
+            var food = _context.Foods.Find(id);
+            if (food==null)
+            {
+                return NotFound();
+            }
+            return View(food);
         }
 
         // POST: FoodController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(int id, IFormCollection collection)
+        public async Task<ActionResult> Update(int id, Food newfood)
         {
-            try
+            if (id==null)
             {
-                return RedirectToAction(nameof(Index));
+                return BadRequest();
             }
-            catch
+            var oldfood = _context.Foods.Find(id);
+            if (oldfood==null)
+            {
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            if (!newfood.Photo.CheckFileSize(200))
+            {
+                ModelState.AddModelError("photo", "az olmalidi 200den");
+                return View();
+            }
+            if (!newfood.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("photo", "sekil olmalidi");
+                return View();
+            }
+            newfood.Image = oldfood.Image;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: FoodController/Delete/5
