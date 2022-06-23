@@ -1,24 +1,31 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Yummy.DAL;
+using Yummy.Helpers;
+using Yummy.Models;
+
 
 namespace Yummy.Areas.AdminPanel.Controllers
 {
+    [Area("AdminPanel")]
     public class FoodController : Controller
     {
+        private AppDbContext _context { get;}
+       private IWebHostEnvironment _env { get; }
+        public FoodController(AppDbContext context, IWebHostEnvironment env)
+        {
+            _context = context;
+            _env = env;
+        }
         // GET: FoodController
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: FoodController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            return View(_context.Foods);
         }
 
         // GET: FoodController/Create
@@ -30,16 +37,26 @@ namespace Yummy.Areas.AdminPanel.Controllers
         // POST: FoodController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(Food food)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+            if (!ModelState.IsValid)
             {
                 return View();
             }
+            if (!food.Photo.CheckFileSize(200))
+            {
+                ModelState.AddModelError("photo", "az olmalidi 200den");
+                return View();
+            }
+            if (!food.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("photo", "sekil olmalidi");
+                return View();
+            }
+            food.Image = await food.Photo.SaveFileAsync(_env.WebRootPath, "image");
+            await _context.Foods.AddAsync(food);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: FoodController/Edit/5
@@ -64,24 +81,29 @@ namespace Yummy.Areas.AdminPanel.Controllers
         }
 
         // GET: FoodController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
         // POST: FoodController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int? id)
         {
-            try
+            if (id==null)
             {
-                return RedirectToAction(nameof(Index));
+                return BadRequest();
             }
-            catch
+            var food = _context.Foods.Find(id);
+            if (food==null)
             {
-                return View();
+                return NotFound();
             }
+            var path = Helper.GetPath(_env.WebRootPath, "image", food.Image);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            _context.Foods.Remove(food);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

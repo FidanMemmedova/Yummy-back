@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj",
         "projectName": "Yummy",
-        "projectPath": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj",
-        "packagesPath": "C:\\Users\\Fidan Mammadova\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Fidan Mammadova\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -57,6 +57,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "System.IO.FileSystem": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
@@ -77,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

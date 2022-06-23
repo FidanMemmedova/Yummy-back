@@ -8470,27 +8470,28 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.25",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.25",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "System.IO.FileSystem >= 4.3.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fidan Mammadova\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj",
       "projectName": "Yummy",
-      "projectPath": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\Yummy.csproj",
-      "packagesPath": "C:\\Users\\Fidan Mammadova\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fidan Mammadova\\source\\repos\\Yummy\\obj\\",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\Yummy.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\Yummy-back\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Fidan Mammadova\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8530,6 +8531,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.5, )"
+          },
+          "System.IO.FileSystem": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [
@@ -8550,7 +8555,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }
